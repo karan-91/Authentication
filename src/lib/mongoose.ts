@@ -32,7 +32,7 @@ export async function connectToDatabase() {
     cached.conn = await cached.promise;
   } catch (error) {
     cached.promise = null;
-    throw new Error("Error connecting to database");
+    throw new Error(`Error connecting to MongoDB: ${error}`);
   }
 
   return cached.conn;
